@@ -45,3 +45,4 @@ Nurul Handani binti Nasaruddin | 1713598
   
 ### 8. References
   * API Reference. (n.d.). Retrieved July 19, 2020, from https://docs.expo.io/versions/latest/
+  * Core Components and APIs · React Native. (n.d.). Retrieved July 20, 2020, from https://reactnative.dev/docs/components-and-apis
