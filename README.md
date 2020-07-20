@@ -46,7 +46,7 @@ Nurul Handani binti Nasaruddin | 1713598
   -----|-----------------------------------------------------------------------------------
   1    | Renavigate between **Sign Up page** and **Sign In page** by 'Sign In' and 'Sign Up'
   2    | Renavigate between **Sign In page** and **List page** by 'Login' and 'Logout'
-  3    | Renavigate between **List page** and **Add page** by '<' button and  '+' button
+  3    | Renavigate between **List page** and **Add page** by '<' button or 'Cancel' and '+' button
   4    | Renavigate between **List page** and **View page by** '<' button and '>' button
   5    | Navigate from **Update page** to **List page** by 'Delete'
   6    | Navigate from **Add page** to **View page** by 'Save'
