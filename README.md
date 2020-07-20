@@ -38,7 +38,29 @@ Nurul Handani binti Nasaruddin | 1713598
  View page                  | User can view the details of every item entered into the database.
   
 ### 6. Screen navigation (routing) and components (presentational and container) implementation with a diagram
-  <p></p>
+  <p>Navigation Diagram</p>
+  
+  <p>Presentational Component</p>
+  No. | Presentational Component   | Explanation
+  ----|----------------------------|--------------------------------------------------------------------------------------
+  1.  | <View></View>              | To display the components used
+  2.  | <TextInput />              | * To key-in user's details in login/sign up page
+                                     * To key-in the data in the "Others" option in each category in the "Add" page
+  3.  | <Button></Button>          | * To select the given options in "Add" page.
+                                     * To click the login or sign up button 
+  4.  | <TouchableHighlight>
+  5.  | <Text></Text>              | To name the title of every page for users' guide and understanding
+  6.  | <FlatList/>                | To display the list of the items in the database on the "View" page
+  
+  
+  <p>Container Component</p>
+   No. | Container Component        | Explanation
+   ----|----------------------------|--------------------------------------------------------------------------------------
+   1.  | onPress()                  | * Click the button and proceed to the next page 
+                                    |  * Click the given options in the category section for adding the items to the database
+   2.  | onChangeText()             | Use in TextInput components
+
+  
   
 ### 7. Sequence diagram of the proposed mobile application.
  ![Sequence Diagram-Khawarizmi](https://github.com/zahirahzamri/Khawarizmi_notifyApp/blob/master/images/sequence%20diagram.png)
