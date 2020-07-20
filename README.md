@@ -37,7 +37,7 @@ Nurul Handani binti Nasaruddin | 1713598
   <p></p>
   
 ### 7. Sequence diagram of the proposed mobile application.
- ![Sequence Diagram-Khawarizmi](zahirahzamri/Khawarizmi_notifyApp/images/sequence-diagram.png)
+ ![Sequence Diagram-Khawarizmi](https://github.com/zahirahzamri/Khawarizmi_notifyApp/blob/master/images/sequence%20diagram.png)
   
 ### 8. References
   * API Reference. (n.d.). Retrieved July 19, 2020, from https://docs.expo.io/versions/latest/
