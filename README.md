@@ -39,6 +39,7 @@ Nurul Handani binti Nasaruddin | 1713598
   
 ### 6. Screen navigation (routing) and components (presentational and container) implementation with a diagram
   <p>Navigation Diagram</p>
+  ![Routing Diagram-Khawarizmi](https://github.com/zahirahzamri/Khawarizmi_notifyApp/blob/master/images/routing.jpg)
   
   Presentational Component   | Explanation
   ---------------------------|--------------------------------------------------------------------------------------
