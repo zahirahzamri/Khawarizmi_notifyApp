@@ -24,6 +24,10 @@ Nurul Handani binti Nasaruddin | 1713598
 ### 5. Features and functionalities of the proposed mobile application.
  Features & Functionalities | Explanation
  ---------------------------| -----------------------------------
+ ExpoUse                    | Use non-native code for mobile application development.
+ React-navigation           | Use react-navigation for routing.
+ Native base                | UI toolkit for styling.
+ Firebase                   | Real-time database to synchronize live data between mobile application with user authentication.
  DateTimePicker API         | Provide access to the user for time and date selection when inserting new subscription information.
  Notifications API          | Allow the mobile app to push notification and notify the user when the payment deadline arrives.
  Signup page                | Allow new user to register themselves before they can use the mobile app.
