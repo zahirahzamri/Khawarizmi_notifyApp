@@ -41,22 +41,22 @@ Nurul Handani binti Nasaruddin | 1713598
   <p>Navigation Diagram</p>
   
   <p>Presentational Component</p>
-  No. | Presentational Component   | Explanation
-  ----|----------------------------|--------------------------------------------------------------------------------------
-  1.  | <View></View>              | To display the components used
-  2.  | <TextInput />              | To key-in user's details in login/sign up page & the data in the "Others" option in each category in the "Add" page
-  3.  | <Button></Button>          | To select the given options in "Add" page & click the login or sign up button 
-  4.  | <TouchableHighlight>       | To select the given options in "Add" page & click the login or sign up button 
-  5.  | <Text></Text>              | To name the title of every page for users' guide and understanding
-  6.  | <FlatList/>                | To display the list of the items in the database on the "View" page
+  Presentational Component   | Explanation
+  ---------------------------|--------------------------------------------------------------------------------------
+  <View></View>              | To display the components used
+  <TextInput />              | To key-in user's details in login/sign up page & the data in the "Others" option in each category in the "Add" page
+  <Button></Button>          | To select the given options in "Add" page & click the login or sign up button 
+  <TouchableHighlight>       | To select the given options in "Add" page & click the login or sign up button 
+  <Text></Text>              | To name the title of every page for users' guide and understanding
+  <FlatList/>                | To display the list of the items in the database on the "View" page
   
   
   <p>Container Component</p>
-   No. | Container Component        | Explanation
-   ----|----------------------------|--------------------------------------------------------------------------------------
-   1.  | onPress()                  | * Click the button and proceed to the next page 
-       |                            | * Click the given options in the category section for adding the items to the database
-   2.  | onChangeText()             | Use in TextInput components
+ Container Component    | Explanation
+ -----------------------|--------------------------------------------------------------------------------------
+ onPress()              | Click the button and proceed to the next page 
+                        | Click the given options in the category section for adding the items to the database
+ onChangeText()         | Use in TextInput components
 
   
   
