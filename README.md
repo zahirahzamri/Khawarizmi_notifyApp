@@ -24,7 +24,7 @@ Nurul Handani binti Nasaruddin | 1713598
 ### 5. Features and functionalities of the proposed mobile application.
  Features & Functionalities | Explanation
  ---------------------------| -----------------------------------
- ExpoUse                    | Use non-native code for mobile application development.
+ Expo                       | Use non-native code for mobile application development.
  React-navigation           | Use react-navigation for routing.
  Native base                | UI toolkit for styling.
  Firebase                   | Real-time database to synchronize live data between mobile application with user authentication.
