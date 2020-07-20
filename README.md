@@ -26,12 +26,12 @@ Nurul Handani binti Nasaruddin | 1713598
  ---------------------------| -----------------------------------
  DateTimePicker API         | Provide access to the user for time and date selection when inserting new subscription information.
  Notifications API          | Allow the mobile app to push notification and notify the user when the payment deadline arrives.
- Signup Screen              | Allow new user to register themselves before they can use the mobile app.
- Login Screen               | Enable registered user to login into their account to become an authorized user.
- List Screen                | Display a list of subscribed apps or utilities.
- Add Screen                 | Allow users to enter new subscription or utility information by providing the name, date, notes and preferable push notification time.
- Update Screen              | Users can edit existing data or delete any subscription item that they no longer needed.
- View Screen                | User can view the details of every item entered into the database.
+ Signup page                | Allow new user to register themselves before they can use the mobile app.
+ Login page                 | Enable registered user to login into their account to become an authorized user.
+ List page                  | Display a list of subscribed apps or utilities.
+ Add page                   | Allow users to enter new subscription or utility information by providing the name, date, notes and preferable push notification time.
+ Update page                | Users can edit existing data or delete any subscription item that they no longer needed.
+ View page                  | User can view the details of every item entered into the database.
   
 ### 6. Screen navigation (routing) and components (presentational and container) implementation with a diagram
   <p></p>
