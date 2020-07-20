@@ -49,10 +49,10 @@ Nurul Handani binti Nasaruddin | 1713598
   FlatList                   | To display the list of the items in the database on the "View" page
   
   
- No.| Container Component    | Explanation
- ---|----------------------- |---------------------------------------------------------------------------------------------
- 1. | onPress                | Click the button and proceed to the next page & click the given options in the category section for adding the items to the database
- 2. | onChangeText           | Use in TextInput components
+ Container Component    | Explanation
+ ---------------------- |---------------------------------------------------------------------------------------------
+ onPress                | Click the button and proceed to the next page & click the given options in the category section for adding the items to the database
+ onChangeText           | Use in TextInput components
 
   
   
