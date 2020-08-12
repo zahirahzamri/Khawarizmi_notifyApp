@@ -25,7 +25,7 @@ Nurul Handani binti Nasaruddin | 1713598
  Features & Functionalities | Explanation
  ---------------------------| -----------------------------------
  Expo                       | Use non-native code for mobile application development.
- React-navigation           | Use react-navigation for routing.
+ React-native -router flux  | Use RNRF for routing.
  Native base                | UI toolkit for styling.
  Firebase                   | Real-time database to synchronize live data between mobile application with user authentication.
  DateTimePicker API         | Provide access to the user for time and date selection when inserting new subscription information.
