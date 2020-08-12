@@ -1,0 +1,17 @@
+import React, { Component } from 'react';
+import { Router, Scene } from 'react-native-router-flux';
+import AddScreen from './src/screens/addSubscription';
+import SignupScreen from './src/screens/signup';
+
+export default class App extends Component {
+  render() {
+    return (
+      <Router>
+        <Scene key="root">
+          <Scene key="AddScreen" component={AddScreen} left={()=>null} title="Notify_U" initial={true} />
+          <Scene key="SignupScreen" component={SignupScreen} left={()=>null} title="Notify_U" />
+        </Scene>
+      </Router>
+    )
+  }
+}

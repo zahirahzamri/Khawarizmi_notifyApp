@@ -1,0 +1,186 @@
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Platform, StatusBar, TextInput, TouchableOpacity, Alert, ActionSheetIOS} from 'react-native';
+import { Container, Form } from 'native-base';
+import { AppLoading } from 'expo';
+import * as firebase from 'firebase';
+import * as Font from 'expo-font';
+import { Value } from 'react-native-reanimated';
+
+export default class Signup extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      fontsLoaded: false,
+      email:null,
+      username: null,
+      password: null,
+      confirmPassword: null
+    };
+  }
+  inputEmail = (value) =>{
+    this.setState({email: value});
+  }
+  inputPassword = (value)=>{
+    this.setState({password:value})
+  }
+  inputUsername = (value)=>{
+    this.setState({username:value})
+  }
+  inputConfirmPassword=(value)=>{
+    this.setState({confirmPassword:value})
+  }
+
+  sign_up = () =>{
+    try{
+      if(this.state.email&& this.state.password&& this.state.username){
+        firebase
+        .auth()
+        //create user in the database
+        .createUserWithEmailUsernameNPassword(this.state.email,this.state.username,this.state.password)
+        .then(user=>{
+          console.log(user);
+          //pop upto show that the user succesful signing up
+          Alert.alert('Status','User succesfully Sign Up');
+          // go to login screen
+          Actions.LoginScreen();
+        })
+        .catch(error =>{
+          Alert.alert('Status',error.toString(error));
+        });
+      }
+      else {
+        Alert.alert('Status','Invalid Email or Password!');
+      }
+    }
+    catch(error){
+      Alert.alert({errorMessage: error.message});
+    }
+  };
+  confirm_password =(value) =>{
+      if(this.state.password!=value){
+        Alert.alert('Status','Confirm password is not identical with Password');
+      }
+      else {
+        this.sign_up()
+      }
+  };
+
+  async componentDidMount() {
+    await Font.loadAsync({
+        'Simplifica': require('../assets/fonts/Simplifica/SIMPLIFICA.ttf'),      
+    });
+
+    this.setState({ fontsLoaded: true });
+  }
+
+
+  render() {
+    const {fontsLoaded} = this.state;
+
+    if(fontsLoaded) {
+      return (
+        <Container>    
+          
+            <View style={styles.container}>
+                <View>
+                  <Text style={styles.title}>SIGN UP</Text>
+                </View>
+
+                <View>
+                  <Form>
+                    <TextInput  style={styles.input}
+                                autoCapitalize='none'
+                                autoCorrect={false} 
+                                placeholder='Email'
+                                onChangeText={this.inputEmail}/>
+
+                    <TextInput  style={styles.input}
+                                autoCapitalize='none'
+                                autoCorrect={false} 
+                                placeholder='Username'
+                                onChangeText={this.inputUsername}/>
+
+                    <TextInput  style={styles.input}
+                                autoCapitalize='none'
+                                autoCorrect={false} 
+                                placeholder='Password'
+                                onChangeText={this.inputPassword}/>
+                                
+                    <TextInput  style={styles.input}    // need to check the 
+                                autoCapitalize='none'
+                                autoCorrect={false} 
+                                placeholder='Comfirm Password'
+                                onChangeText={this.inputConfirmPassword}/>
+    
+                  </Form>
+                </View>
+                
+                <View style={{marginTop:25}}>
+                  <TouchableOpacity style= {styles.loginBtn} onPress={this.confirm_password}>
+                    <Text style= {{color: 'white'}}>Signing Up</Text>
+                  </TouchableOpacity>
+                </View>
+                
+        
+            </View>
+          
+        </Container>
+      );
+  }
+  else return <AppLoading/>;
+}
+
+}
+
+const styles = StyleSheet.create({
+  
+  androidHeader: {
+      ...Platform.select({
+            android: {
+                paddingTop: StatusBar.currentHeight,
+            }
+        })         
+  },
+  container:{
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+  },
+  title: {
+    alignItems: 'center',
+    justifyContent: 'center', 
+    fontFamily: 'Simplifica',
+    fontSize: 50,
+    marginBottom: 20
+  },
+  input: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    borderWidth: 1,
+    borderRadius: 25,
+    width: 250,
+    padding: 5,
+    marginBottom: 10
+  },
+  loginBtn: {
+    width: 200,
+    textAlign: 'center',
+    alignItems: 'center',
+    backgroundColor: 'purple',
+    padding: 10,
+    borderRadius: 15,
+    marginBottom: 20
+  },
+  account: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',  
+  },
+  signupBtn: {
+    fontWeight: 'bold'
+  }
+ 
+ 
+
+});
