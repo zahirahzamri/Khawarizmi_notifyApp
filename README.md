@@ -57,6 +57,12 @@ Nurul Handani binti Nasaruddin | 1713598
   9    | Navigate from **View page** to **Sign In page** by 'Log Out'
   10   | Navigate from **Update page** to **Sign In page** by 'Log Out'
   
+ **Authentication:**
+Using firebase, users will need to enter their registered email and password for authentication to access the application. Authentication in firebase only allows email because its application is fairly simple and focuses on a smaller scope. The users need to sign up first before accessing the application.
+
+**Data storage:**
+Firebase realtime-database is the data storage that is used in this application. This firebase has the function of synchronizing data in real-time between users. Next, it aims to ensure that users know that the data they are entering is stored in the database and view it for updating purposes if necessary.
+  
   
   Presentational Component   | Explanation
   ---------------------------|---------------------------------------------------------------------------------------------------------------------
