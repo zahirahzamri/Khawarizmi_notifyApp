@@ -9,6 +9,7 @@ import UpdateSubscription from './src/screens/UpdateSubscription';
 import MainScreen from './src/screens/MainScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import SignupScreen from './src/screens/SignupScreen';
+import AddUtilities from './src/screens/AddUtilities';
 
 
 export default class App extends Component {
