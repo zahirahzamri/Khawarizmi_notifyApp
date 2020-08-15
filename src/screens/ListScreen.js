@@ -6,6 +6,7 @@ import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import * as firebase from 'firebase';
 
+
 export default class ListScreen extends Component {
   constructor(){
     super();
@@ -70,7 +71,7 @@ export default class ListScreen extends Component {
                     <Text style= {{color: 'white', fontSize: 18}}>APPLICATIONS</Text>
                   </TouchableOpacity>
 
-                  <TouchableOpacity style= {styles.button}>
+                  <TouchableOpacity style= {styles.button} onPress={Action.UtilitiesListScreen}>
                     <Text style= {{color: 'white', fontSize: 18}}>UTILITIES</Text>
                   </TouchableOpacity>
                 </View>
