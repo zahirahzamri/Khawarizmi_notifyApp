@@ -23,10 +23,10 @@ export const updateSubscriptionApp =  (subsAppName,amount,renewalPeriod,paymentM
     }, () => Actions.ListScreen());
 }
 
-export const AddUtilitiesApp =  (utilitiesName,renewalPeriod,paymentMethod,reminder) => {
+export const AddUtilitiesApp =  (utilitiesName,duePeriod,paymentMethod,reminder,date) => {
     db.ref('/apps').child(utilitiesName).set({
         utilitiesName: utilitiesName,
-        renewalPeriod: renewalPeriod,
+        duePeriod: duePeriod,
         paymentMethod: paymentMethod,
         reminder: reminder,
         date: new Date().toString(),
