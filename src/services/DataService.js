@@ -40,12 +40,12 @@ export const updateUtilities =  (utilitiesName,duePeriod,paymentMethod,reminder,
         paymentMethod: paymentMethod,
         reminder: reminder,
         date: date
-    }, () => Actions.AddUtilities());
+    }, () => Actions.ListScreen());
 }
 
 export const removeUtilities =  (utilitiesName) => {
     db.ref('/apps').child(utilitiesName).remove();
-    Actions.AddUtilities();
+    Actions.ListScreen();
 }
 
 export const removeSubscriptionApp =  (subsAppName) => {
