@@ -1,29 +1,24 @@
-import { db } from '../config/db';
-import { Actions } from 'react-native-router-flux';
-
-export const AddSubscriptionApp =  (subsAppName,amount,renewalPeriod,paymentMethod,reminder,date) => {
-    db.ref('/apps').child(subsAppName).set({
-        subsAppName: subsAppName,
-        amount: amount,
-        renewalPeriod: renewalPeriod,
+export const AddUtilitiesApp =  (utilitiesName,duePeriod,paymentMethod,reminder,date) => {
+    db.ref('/apps').child(utilitiesName).set({
+        utilitiesName: utilitiesName,
+        duePeriod: duePeriod,
         paymentMethod: paymentMethod,
         reminder: reminder,
         date: date,
-    }, () => Actions.ListScreen());
+    }, () => Actions.AddUtilities());
 }
 
-export const updateSubscriptionApp =  (subsAppName,amount,renewalPeriod,paymentMethod,reminder,date) => {
-    db.ref('/apps').child(subsAppName).update({
-        subsAppName: subsAppName,
-        amount: amount,
-        renewalPeriod: renewalPeriod,
+export const updateUtilitiesApp =  (utilitiesName,duePeriod,paymentMethod,reminder,date) => {
+    db.ref('/apps').child(utilitiesName).update({
+        utilitiesName: utilitiesName,
+        duePeriod: duePeriod,
         paymentMethod: paymentMethod,
         reminder: reminder,
         date: date
-    }, () => Actions.ListScreen());
+    }, () => Actions.AddUtilities());
 }
 
-export const removeSubscriptionApp =  (subsAppName) => {
-    db.ref('/apps').child(subsAppName).remove();
-    Actions.ListScreen();
+export const removeSubscriptionApp =  (utilitiesName) => {
+    db.ref('/apps').child(utilitiesName).remove();
+    Actions.AddUtilities();
 }
