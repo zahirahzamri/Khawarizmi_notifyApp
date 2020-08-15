@@ -9,7 +9,7 @@ export const AddSubscriptionApp =  (subsAppName,amount,renewalPeriod,paymentMeth
         paymentMethod: paymentMethod,
         reminder: reminder,
         date: new Date().toString(),
-    }, () => Actions.ListScreen());
+    }, () => Actions.Tab1());
 }
 
 export const updateSubscriptionApp =  (subsAppName,amount,renewalPeriod,paymentMethod,reminder) => {
