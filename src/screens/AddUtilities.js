@@ -58,7 +58,7 @@ export default class AddUtilities extends Component {
                     Alert.alert('Status','Invalid Utility Name');
                 } 
                 else {
-                     addStudent(this.state.utilitiesName && this.state.duePeriod 
+                     AddUtilitiesApp (this.state.utilitiesName && this.state.duePeriod 
                         && this.state.paymentmethod && this.state.reminder && this.state.date);
                     }
                 } 
