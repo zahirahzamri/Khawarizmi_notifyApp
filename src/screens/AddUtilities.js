@@ -35,7 +35,7 @@ export default class AddUtilities extends Component {
     }
 
     setDuePeriod = (value) => {
-        this.setState({ renewalPeriod: value });
+        this.setState({ duePeriod: value });
     }
 
     setPaymentMethod = (value) => {
