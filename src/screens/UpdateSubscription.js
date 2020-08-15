@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
 import { StyleSheet, Text, View, Platform, StatusBar, TouchableOpacity}  from 'react-native';
-import { Container, Content, Form, Header, Left, Right, Icon, Input, Picker, Label} from 'native-base';
-import DateTimePicker from '@react-native-community/datetimepicker';
-
+import { Container, Content, Form, Header, Left, Right, Icon, Input, Picker, Label, DatePicker, Item} from 'native-base';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
-
 import { db } from '../config/db';
 import { updateSubscriptionApp } from '../services/DataService';
 import { removeSubscriptionApp } from '../services/DataService';
@@ -76,22 +73,13 @@ export default class UpdateSubscription extends Component {
   selectReminder = (value) => {
     this.setState({ reminder: value });
   }
-  show = (mode) => {
-    this.setState({
-      show: true,
-      mode,
-    })
-  }
-  datepicker = (value) => {
-      this.show(value);
-  }
-  timepicker = (value) => {
-    this.show(value)
+  setDate(newdate) {
+    this.setState({ date: newdate });
   }
 
   updateData = () =>{
-    if(this.state.subsAppName && this.state.amount && this.state.renewalPeriod && this.state.paymentMethod && this.state.reminder){
-      updateSubscriptionApp(this.state.subsAppName, this.state.amount, this.state.renewalPeriod, this.state.paymentMethod, this.state.reminder);
+    if(this.state.subsAppName && this.state.amount && this.state.renewalPeriod && this.state.paymentMethod && this.state.reminder && this.state.date){
+      updateSubscriptionApp(this.state.subsAppName, this.state.amount, this.state.renewalPeriod, this.state.paymentMethod, this.state.reminder, this.state.date);
     } 
     else{
        Alert.alert('Status','Empty Field(s)!');
@@ -100,6 +88,18 @@ export default class UpdateSubscription extends Component {
 
   deleteData = (subsAppName) =>{
     this.props.onPress(removeSubscriptionApp(subsAppName));
+  }
+
+  Logout = () => {
+    firebase
+        .auth()
+        .signOut()
+        .then(function() {
+          Actions.LoginScreen();
+         })
+        .catch(function(error) {
+          Alert.alert('Status', error.toString(error));
+        });
   }
 
 
@@ -120,7 +120,7 @@ export default class UpdateSubscription extends Component {
                  </Left >
 
                 <Right style={styles.right}>
-                  <TouchableOpacity onPress={() => {Actions.LoginScreen();}}><Text>Log Out</Text></TouchableOpacity>
+                  <Text onPress={this.Logout}>Log Out</Text>
                 </Right>
 
             </Header>
@@ -130,89 +130,104 @@ export default class UpdateSubscription extends Component {
                   <Text style={styles.title}>UPDATE SUBSCRIPTION</Text>
                 </View>
                 <Form>
+
                   <View style={styles.container2}>
+                    <Item fixedLabel last>
                       <Text style={styles.subheading}>Name</Text>
-                        <Input style={styles.inputBox} onChangeText={this.setSubsAppName} value={this.props.subsAppName} disabled='true'/>
+                      <Input style={styles.inputBox} onChangeText={this.setSubsAppName} value={this.props.subsAppName} disabled='true'/>
+                    </Item>
                   </View>
+
                   <View style={styles.container2}>
-                      <Text style={styles.subheading}>Amount</Text>
+                      <Item fixedLabel last>
+                        <Text style={styles.subheading}>Amount</Text>
                         <Input style={styles.inputBox} onChangeText={this.setAmount} value={String(this.state.amount)} />
+                      </Item>
                   </View>
+
                   <View style={styles.container2}>
-                      <Text style={styles.subheading}>Renewal Period</Text>
-                      <Picker 
-                        mode="dropdown" 
-                        iosIcon={<Icon name="arrow-down" />}
-                        style={styles.inputBox}
-                        placeholder="Select Renewal Period"
-                        placeholderStyle={{ color: "#bfc6ea" }}
-                        placeholderIconColor="#007aff"
-                        selectedValue={this.state.renewalPeriod}
-                        onValueChange={this.selectRenewalPeriod}
-                        Title="RenewalPeriod"
-                        >
-                        <Picker.Item label='Month' value='Month' />
-                        <Picker.Item label='Week' value='Week' />
-                        <Picker.Item label='Year' value='Year' />
-                      </Picker>
-                  </View>
-                  <View style={styles.container2}>
-                      <Text style={styles.subheading}>Payment method</Text>
-                      <Picker 
-                        mode="dropdown" 
-                        iosIcon={<Icon name="arrow-down" />}
-                        style={styles.inputBox} 
-                        placeholder="Select Payment"
-                        placeholderStyle={{ color: "#bfc6ea" }}
-                        placeholderIconColor="#007aff"
-                        selectedValue={this.state.paymentMethod}
-                        onValueChange={this.selectPaymentMethod}
-                        Title="PaymentMethod"
-                        >
-                        <Picker.Item label="Credit Card" value="Credit card" />
-                        <Picker.Item label="Online Banking" value="Online Banking" />
-                        <Picker.Item label="Cash" value="Cash" />
-                      </Picker>
-                  </View>
-                  <View style={styles.container2}>
-                      <Text style={styles.subheading}>Reminder</Text>
-                      <Picker 
-                        mode="dropdown" 
-                        iosIcon={<Icon name="arrow-down" />}
-                        style={styles.inputBox} 
-                        placeholder="Select Reminder"
-                        placeholderStyle={{ color: "#bfc6ea" }}
-                        placeholderIconColor="#007aff"
-                        selectedValue={this.state.reminder}
-                        onValueChange={this.selectReminder}
-                        Title="Reminder"
-                        >
-                        <Picker.Item label="1 day before" value="oneDayBefore" />
-                        <Picker.Item label="2 day before" value="2DayBefore" />
-                        <Picker.Item label="3 day before" value="3DayBefore" />
-                        <Picker.Item label="1 week before" value="oneWeekBefore" />
-                      </Picker>
-                  </View>
-                  <View style={styles.container2}>
-                        <Label style={styles.label}>First Payment</Label>
+                      <Item fixedLabel last>
+                        <Text style={styles.subheading}>First Payment</Text>
                         <View>
-                          <TouchableOpacity onPress={this.datepicker}
-                                            style={[styles.inputBox, {paddingTop: 5}]}> 
-                            <Text>Select date</Text>
-                          </TouchableOpacity>
-                          {
-                            show && <DateTimePicker value={date}
-                                                    is24Hour={true}
-                                                    display='default'
-                                                    onChange={this.setDate}>
-
-                            </DateTimePicker > 
-                          }
-
-                          <Text style={{color:'green'}}>
-                              Date: {this.state.date.toString().substr(4, 12)}
-                          </Text> 
+                          <View style={styles.picker}>
+                            <DatePicker 
+                                  defaultDate={new Date()}
+                                  modalTransparent={false}
+                                  placeHolderText="Select date"
+                                  animationType={"fade"}
+                                  mode='datetime'
+                                  is24Hour={false}
+                                  onDateChange={this.setDate}
+                            />
+                            </View>
+                            {/* <Text style={{color:'green'}}>
+                                Date: {this.state.date.toString().substr(4, 12)}
+                            </Text>  */}
                         </View>
+                      </Item>
+                  </View>
+
+                  <View style={styles.container2}>
+                      <Item fixedLabel last>
+                        <Text style={styles.subheading}>Renewal Period</Text>
+                        <Picker 
+                          mode="dropdown" 
+                          iosIcon={<Icon name="arrow-down" />}
+                          style={styles.inputBox}
+                          placeholder="Select Renewal Period"
+                          placeholderStyle={{ color: "#bfc6ea" }}
+                          placeholderIconColor="#007aff"
+                          selectedValue={this.state.renewalPeriod}
+                          onValueChange={this.selectRenewalPeriod}
+                          Title="RenewalPeriod"
+                          >
+                          <Picker.Item label='Month' value='Month' />
+                          <Picker.Item label='Week' value='Week' />
+                          <Picker.Item label='Year' value='Year' />
+                        </Picker>
+                      </Item>
+                  </View>
+                  <View style={styles.container2}>
+                      <Item fixedLabel last>
+                        <Text style={styles.subheading}>Payment method</Text>
+                        <Picker 
+                          mode="dropdown" 
+                          iosIcon={<Icon name="arrow-down" />}
+                          style={styles.inputBox} 
+                          placeholder="Select Payment"
+                          placeholderStyle={{ color: "#bfc6ea" }}
+                          placeholderIconColor="#007aff"
+                          selectedValue={this.state.paymentMethod}
+                          onValueChange={this.selectPaymentMethod}
+                          Title="PaymentMethod"
+                          >
+                          <Picker.Item label="Credit Card" value="Credit card" />
+                          <Picker.Item label="Online Banking" value="Online Banking" />
+                          <Picker.Item label="Cash" value="Cash" />
+                        </Picker>
+                      </Item>
+                  </View>
+                  <View style={styles.container2}>
+                      <Item fixedLabel last>
+                        <Text style={styles.subheading}>Reminder</Text>
+                        <Picker 
+                          mode="dropdown" 
+                          iosIcon={<Icon name="arrow-down" />}
+                          style={styles.inputBox} 
+                          placeholder="Select Reminder"
+                          placeholderStyle={{ color: "#bfc6ea" }}
+                          placeholderIconColor="#007aff"
+                          selectedValue={this.state.reminder}
+                          onValueChange={this.selectReminder}
+                          Title="Reminder"
+                          >
+                          <Picker.Item label="1 day before" value="oneDayBefore" />
+                          <Picker.Item label="2 day before" value="2DayBefore" />
+                          <Picker.Item label="3 day before" value="3DayBefore" /> 
+                          <Picker.Item label="1 week before" value="oneWeekBefore" />
+                          <Picker.Item label="1 month before" value="oneMonthBefore" />
+                        </Picker>
+                      </Item>
                   </View>
                 </Form>
 
