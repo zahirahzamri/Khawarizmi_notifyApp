@@ -8,7 +8,7 @@ Nur Izyan binti Rosli | 1718844
 Nur'ain Afiqah binti Mohd Shabul Fadilah | 1712282
 Nurul Handani binti Nasaruddin | 1713598
 
-### 2. Title of the project: Subcription alert App
+### 2. Title of the project: My Bill & Payments App
 ### 3. Introduction
   <p>Today, there are many apps that can be used particularly for entertainment like Spotify and Netflix. Not every application is free to use for users though. Spotify, for example, has two versions that are free for users: Spotify Premium and Spotify. Users need to have subscriptions and must be charged to use Spotify Premium. There are many things the human brain cannot remember. Using this mobile application can prevent the cognitive load from occurring. This mobile app is capable of tracking payment and utility service bills that were saved in the database system.</p>
   
@@ -17,8 +17,9 @@ Nurul Handani binti Nasaruddin | 1713598
   <p>There are two separate data categories in this mobile application that can be applied to the system; subscription services and utilities. The aim of categorizing this is to view the data on the View page later. It allows the entry of what users bring into the system.</p>
   
 ### 4. Objectives
-   * To notify and keep track of the bills that users have to pay when the deadline arrives.
    * To allow users to remember the payments they need to make in their everyday lives.
+   * To notify and keep track of the bills that users have to pay when the deadline arrives.
+   
 
     
 ### 5. Features and functionalities of the proposed mobile application.
@@ -32,6 +33,7 @@ Nurul Handani binti Nasaruddin | 1713598
  Notifications API          | Allow the mobile app to push notification and notify the user when the payment deadline arrives.
  Signup page                | Allow new user to register themselves before they can use the mobile app.
  Login page                 | Enable registered user to login into their account to become an authorized user.
+ Home page                  | Allow user to choose either to add new notification or view the apps or utilities that stored in database.
  List page                  | Display a list of subscribed apps or utilities.
  Add page                   | Allow users to enter new subscription or utility information by providing the name, date, notes and preferable push notification time.
  Update page                | Users can edit existing data or delete any subscription item that they no longer needed.
