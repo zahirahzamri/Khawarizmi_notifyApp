@@ -23,6 +23,16 @@ export const updateSubscriptionApp =  (subsAppName,amount,renewalPeriod,paymentM
     }, () => Actions.ListScreen());
 }
 
+export const AddUtilitiesApp =  (utilitiesName,renewalPeriod,paymentMethod,reminder,date) => {
+    db.ref('/apps').child(utilitiesName).set({
+        utilitiesName: utilitiesName,
+        renewalPeriod: renewalPeriod,
+        paymentMethod: paymentMethod,
+        reminder: reminder,
+        date: date,
+    }, () => Actions.ListScreen());
+}
+
 export const removeSubscriptionApp =  (subsAppName) => {
     db.ref('/apps').child(subsAppName).remove();
     Actions.ListScreen();
