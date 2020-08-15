@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Platform, StatusBar, TouchableOpacity}  from 'r
 import { Container, Content, Form, Header, Left, Right, Icon, Input, Picker, Label, DatePicker, Item} from 'native-base';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
+import * as firebase from 'firebase';
 import { db } from '../config/db';
 import { updateSubscriptionApp } from '../services/DataService';
 import { removeSubscriptionApp } from '../services/DataService';
@@ -232,11 +233,11 @@ export default class UpdateSubscription extends Component {
                 </Form>
 
                 <View style={styles.btnView}>
-                  <TouchableOpacity style= {styles.button} onPress={() => {Actions.deleteData;}}>
+                  <TouchableOpacity style= {styles.button} onPress={() => {this.deleteData;}}>
                     <Text style= {{color: 'white'}}>DELETE</Text>
                   </TouchableOpacity>
 
-                  <TouchableOpacity style= {styles.button} onPress={() => {Actions.updateData;}}>
+                  <TouchableOpacity style= {styles.button} onPress={() => {this.updateData;}}>
                     <Text style= {{color: 'white'}}>SAVE</Text>
                   </TouchableOpacity>
                 </View>
