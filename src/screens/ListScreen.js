@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { Alert, StyleSheet, StatusBar, View} from 'react-native';
-import { Container, Content, Footer, FooterTab, Button, Text,  Header, Left, Right, Tab, Tabs} from 'native-base';
-import { MaterialIcons } from '@expo/vector-icons';
+import { StyleSheet, StatusBar, View, TouchableOpacity} from 'react-native';
+import { Container, Content, Text, Header, Left, Right, Icon} from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import * as Font from 'expo-font';
-import Tab1 from './Tab1'
 import { AppLoading } from 'expo';
-import firebase from 'firebase'
+import * as Font from 'expo-font';
+import * as firebase from 'firebase';
 
-export default class AppListScreen extends Component {
+export default class ListScreen extends Component {
   constructor(){
     super();
     this.state = {
@@ -17,15 +15,12 @@ export default class AppListScreen extends Component {
   }
 
   async componentDidMount() {
-    await Font.loadAsync({
-      'Simplifica': require('../assets/fonts/Simplifica.ttf'),      
-    });
-    this.setState({ fontsLoaded: true });
-  }
+   
+     await Font.loadAsync({
+      'Simplifica': require('../assets/fonts/Simplifica/SIMPLIFICA.ttf'),      
+      });
 
-
-  goToAddScreen = () => {
-    Actions.AddSubscriptions();
+  this.setState({ fontsLoaded: true });
   }
 
   Logout = () => {
@@ -39,6 +34,7 @@ export default class AppListScreen extends Component {
           Alert.alert('Status', error.toString(error));
         });
   }
+  
 
   render() {
     const {fontsLoaded} = this.state;
@@ -52,9 +48,9 @@ export default class AppListScreen extends Component {
                      androidStatusBarColor='#000'>
 
                 <Left style={{flexDirection: 'row', paddingBottom: 20}}>
-                     {/* <Icon name='arrow-back' 
+                     <Icon name='arrow-back' 
                            style={{color: 'black', marginLeft: 10}}
-                     /> */}
+                     />
                 </Left >
 
                 <Right style={styles.right}>
@@ -68,34 +64,24 @@ export default class AppListScreen extends Component {
                   <Text style={styles.title}>MY SUBSCRIPTIONS</Text>
                 </View>
 
-              <Tabs tabBarUnderlineStyle={{borderBottomWidth:4, borderBottomColor: '#53337d'}}>
+                <View style={styles.btnView}>
+                  <TouchableOpacity style= {styles.button}
+                                    onPress={() => {Actions.Tab1();}}>
+                    <Text style= {{color: 'white', fontSize: 18}}>APPLICATIONS</Text>
+                  </TouchableOpacity>
 
-              <Tab heading="Applications" tabStyle={{backgroundColor: 'white'}} 
-                  textStyle={{color: 'black'}} activeTabStyle={{backgroundColor: '#ededed'}} 
-                  activeTextStyle={{color: 'black', fontWeight: 'normal'}}>
-              <Tab1 /></Tab>
+                  <TouchableOpacity style= {styles.button}>
+                    <Text style= {{color: 'white', fontSize: 18}}>UTILITIES</Text>
+                  </TouchableOpacity>
+                </View>
+              
 
-              <Tab heading="Utilities" tabStyle={{backgroundColor: 'white'}} 
-                  textStyle={{color: 'black'}} activeTabStyle={{backgroundColor: '#ededed'}} 
-                  activeTextStyle={{color: 'black', fontWeight: 'normal'}}>
-              </Tab>
-    
-            </Tabs>
-          
         </Content>
   
-        <Footer style={{marginBottom: 35, backgroundColor: 'transparent'}}>
-          <FooterTab style={{backgroundColor: 'transparent'}}>
-            <Button onPress={this.goToAddScreen}>
-            <MaterialIcons name="add-circle-outline" size={55} color="gray" />
-            </Button>
-          </FooterTab>
-        </Footer>
-
       </Container>
     );
-  }
-  else return <AppLoading/>
+   }
+    else return <AppLoading/>
 }
 }
 
@@ -121,29 +107,30 @@ const styles = StyleSheet.create({
     backgroundColor: 'purple', 
     width: '100%', 
     alignItems: 'center',
+    marginBottom: 20,
   },
   title: {
     alignItems: 'center',
     justifyContent: 'center', 
-   fontFamily: 'Simplifica',
+    fontFamily: 'Simplifica',
     fontSize: 40,
     padding: 5,
     color: '#FFF'
   },
   button: {
-    width: 155,
-    textAlign: 'center',
+    width: 250,
+    height: 80,
+    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'purple',
     padding: 10,
     borderRadius: 15,
-    marginBottom: 20
+    marginBottom: 20,
   },
   btnView: {
-    marginTop:20, 
-    flexDirection: 'row', 
-    justifyContent:'space-between', 
+    alignItems: 'center',
+    marginTop:180, 
     paddingHorizontal: 20
-  }
+  },
+  
 });
-
