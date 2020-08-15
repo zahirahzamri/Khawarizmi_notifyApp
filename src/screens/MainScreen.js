@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, TouchableOpacity, StatusBar} from 'react-native
 import { Container, Content, Header, Right} from 'native-base';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
+import * as firebase from 'firebase';
 
 export default class MainScreen extends Component {
   constructor() {
@@ -19,6 +20,18 @@ export default class MainScreen extends Component {
     });
     this.setState({ fontsLoaded: true });
   }
+
+  Logout = () => {
+    firebase
+        .auth()
+        .signOut()
+        .then(function() {
+          Actions.LoginScreen();
+         })
+        .catch(function(error) {
+          Alert.alert('Status', error.toString(error));
+        });
+  }
   
   render() {
     const {fontsLoaded} = this.state;
@@ -31,7 +44,7 @@ export default class MainScreen extends Component {
                   androidStatusBarColor='#000'>
 
               <Right style={styles.right}>
-                  <TouchableOpacity onPress={() => {Actions.LoginScreen();}}><Text>Log Out</Text></TouchableOpacity>
+                  <Text onPress={this.Logout}>Log Out</Text>
               </Right>
           </Header>
           <Content padder>
