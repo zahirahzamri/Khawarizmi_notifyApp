@@ -23,6 +23,10 @@ export default class App extends Component {
           <Scene key="MainScreen" component={MainScreen} left={()=>null} title="Notify_U" initial={true}/>
           <Scene key="ListScreen" component={ListScreen} left={()=>null} title="Notify_U" />
           <Scene key="Tab1" component={Tab1} left={()=>null} title="Notify_U" />
+            
+            
+          <Scene key="AddUtilitiies" component={AddUtilities} left={()=>null} title="Notify_U" />
+    
           
           
           <Scene key="AddSubscriptions" component={AddSubscriptions} left={()=>null} title="Notify_U" />
