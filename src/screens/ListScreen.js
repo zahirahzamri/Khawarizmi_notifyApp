@@ -71,7 +71,7 @@ export default class ListScreen extends Component {
                     <Text style= {{color: 'white', fontSize: 18}}>APPLICATIONS</Text>
                   </TouchableOpacity>
 
-                  <TouchableOpacity style= {styles.button} onPress={Action.}>
+                  <TouchableOpacity style= {styles.button} >
                     <Text style= {{color: 'white', fontSize: 18}}>UTILITIES</Text>
                   </TouchableOpacity>
                 </View>
