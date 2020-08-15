@@ -34,7 +34,7 @@ export default class SignUpScreen extends Component {
   
   async componentDidMount() {
     await Font.loadAsync({
-        'Simplifica': require('../assets/fonts/SIMPLIFICA.tff'),      
+        'Simplifica': require('../assets/fonts/Simplifica.tff'),      
     });
 
     this.setState({ fontsLoaded: true });
