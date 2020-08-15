@@ -77,6 +77,7 @@ export default class AddSubscriptions extends Component {
                 <Left style={{flexDirection: 'row', paddingBottom: 20}}>
                      <Icon name='arrow-back' 
                            style={{color: 'black', marginLeft: 10}}
+                           onPress={() => {Actions.Tab1();}}
                      />
                  </Left >
 
@@ -206,7 +207,8 @@ export default class AddSubscriptions extends Component {
                 </View>
                 
                 <View style={styles.btnView}>
-                  <TouchableOpacity style= {styles.button}>
+                  <TouchableOpacity style= {styles.button}
+                                    onPress={() => {Actions.Tab1();}}>
                     <Text style= {{color: 'white'}}>CANCEL</Text>
                   </TouchableOpacity>
 
