@@ -10,6 +10,9 @@ import MainScreen from './src/screens/MainScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import SignupScreen from './src/screens/SignupScreen';
 import AddUtilities from './src/screens/AddUtilities';
+import UpdateUtilities from './src/screens/UpdateUtilities';
+import ViewUtilities from './src/screens/ViewUtilities';
+import UtilitiesListScreen from './src/screens/UtilitiesListScreen';
 
 
 export default class App extends Component {
@@ -26,8 +29,9 @@ export default class App extends Component {
             
             
           <Scene key="AddUtilitiies" component={AddUtilities} left={()=>null} title="Notify_U" />
-    
-          
+          <Scene key="ViewUtilities" component={ViewUtilities} left={()=>null} title="Notify_U" />
+          <Scene key="UpdateUtilities" component={UpdateUtilities} left={()=>null} title="Notify_U" />
+          <Scene key="UtilitiesListScreen" component={UtilitiesListScreen} left={()=>null} title="Notify_U" />
           
           <Scene key="AddSubscriptions" component={AddSubscriptions} left={()=>null} title="Notify_U" />
           <Scene key="ViewSubscription" component={ViewSubscription} left={()=>null} title="Notify_U"/>
