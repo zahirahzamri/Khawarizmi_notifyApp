@@ -33,6 +33,21 @@ export const AddUtilitiesApp =  (utilitiesName,duePeriod,paymentMethod,reminder,
     }, () => Actions.ListScreen());
 }
 
+export const updateUtilities =  (utilitiesName,duePeriod,paymentMethod,reminder,date) => {
+    db.ref('/apps').child(utilitiesName).update({
+        utilitiesName: utilitiesName,
+        duePeriod: duePeriod,
+        paymentMethod: paymentMethod,
+        reminder: reminder,
+        date: date
+    }, () => Actions.AddUtilities());
+}
+
+export const removeUtilities =  (utilitiesName) => {
+    db.ref('/apps').child(utilitiesName).remove();
+    Actions.AddUtilities();
+}
+
 export const removeSubscriptionApp =  (subsAppName) => {
     db.ref('/apps').child(subsAppName).remove();
     Actions.ListScreen();
